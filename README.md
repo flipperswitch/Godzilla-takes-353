@@ -9,10 +9,10 @@ While I have done other coursework related projects in the past, the project for
   supplied by a professor.
 I have a background in Biology with a Bachelor of Science degree conferred in 2004.
 Prior to this course (post graduation) I have taken:
-  Linear Algebra
-  Discrete Math
-  Intro to programming in Python
-  Object Oriented Software Development (Java)
-  Software Systems
-  Data Structures and Algorithms (C++)
+  Linear Algebra,
+  Discrete Math,
+  Intro to programming in Python,
+  Object Oriented Software Development (Java),
+  Software Systems,
+  Data Structures and Algorithms (C++), and
   Database Systems  (Java and SQL)
