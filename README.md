@@ -1,5 +1,5 @@
 # Godzilla-takes-353
-For Homework Assignments and Project related to CPS 353 Fall 2917
+For Homework Assignments and Project related to CPS 353 Fall 2017
 
 I am Krista Christie, taking CPS 353 (internet programming) in the fall semester 2017.
 This repository will be used for work on the central project for the class as well as homework assignments.
