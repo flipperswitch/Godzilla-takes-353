@@ -1,0 +1,71 @@
+body {
+    background-color: #e2f0ed;
+    width: 100%;
+}
+
+.fulldiv{
+    width: 100%;
+}
+
+.labelNorm{
+    color: #0b2732;
+}
+
+input{
+    background-color: #e2f0ed;
+    color: #0b2732;
+    display: block;
+    width: 100%;
+}
+
+button{
+    display: block;
+    width: 100%;
+}
+
+.band{
+    background-color: #0b2732;
+    color: #e2f0ed;
+    padding-right: 2%;
+    font-size: 18pt;
+}
+
+.topBar{
+    position: fixed;
+    top: 0%;
+}
+
+.bottomBar{
+    position: fixed;
+    bottom: 0%;
+}
+
+.myLists{
+    padding-top: 70px;
+    background-color: #e2f0ed;
+    color: #0b2732;
+    display: block;
+    width: 100%;
+}
+
+@media only screen and (orientaiton: profile){
+
+.hideMeSmall{
+    display: none;
+}
+}
+
+@media only screen and (orientation: landscape){
+
+.miniElementBorder{
+    border-color: color: #0b2732;
+    border: 1px;
+}
+
+.shrinkOnLarge{
+    width: 65%;
+    position: fixed;
+    right: 0%
+}
+
+}
