@@ -3,6 +3,29 @@ body {
     width: 100%;
 }
 
+*{
+    box-sizing: border-box;
+}
+
+.menu {
+    width: 35%;
+    float: left;
+}
+
+.vl{
+    width: 2px;
+    background-color: #0b2732;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 35%;
+}
+
+.main {
+    width: 64%;
+    float: left;
+}
+
 .fulldiv{
     width: 100%;
 }
@@ -11,7 +34,7 @@ body {
     color: #0b2732;
 }
 
-input{
+input, textarea{
     background-color: #e2f0ed;
     color: #0b2732;
     display: block;
@@ -48,24 +71,8 @@ button{
     width: 100%;
 }
 
-@media only screen and (orientaiton: profile){
-
-.hideMeSmall{
-    display: none;
+@media screen and (max-width: 768px){
+.fullMain{
+    width: 100%;
 }
-}
-
-@media only screen and (orientation: landscape){
-
-.miniElementBorder{
-    border-color: color: #0b2732;
-    border: 1px;
-}
-
-.shrinkOnLarge{
-    width: 65%;
-    position: fixed;
-    right: 0%
-}
-
 }
