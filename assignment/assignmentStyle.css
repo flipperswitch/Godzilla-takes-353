@@ -21,6 +21,15 @@ body {
     left: 35%;
 }
 
+.vlLight{
+    width: 2px;
+    background-color: #a5c1c6;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 35%;
+}
+
 .main {
     width: 64%;
     float: left;
@@ -51,6 +60,13 @@ button{
     color: #e2f0ed;
     padding-right: 2%;
     font-size: 18pt;
+}
+
+.lightBand{
+    background-color: #a5c1c6;
+    color: #0b2732;
+    padding-right: 2%;
+    font-zize: 18pt;
 }
 
 .topBar{
