@@ -8,8 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var router_1 = require("@angular/router");
 var websites_app_component_1 = require("./websites-app.component");
+var routes_1 = require("./routes");
+//import { IUser } from './components/user/user.model'
 var user_service_1 = require("./services/user.service");
+var login_component_1 = require("./components/user/login.component");
+var register_component_1 = require("./components/user/register.component");
+var profile_component_1 = require("./components/user/profile.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -17,12 +23,10 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule],
-        declarations: [websites_app_component_1.WebsitesAppComponent],
+        imports: [platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(routes_1.appRoutes)],
+        declarations: [websites_app_component_1.WebsitesAppComponent, login_component_1.LoginComponent, register_component_1.RegisterComponent, profile_component_1.ProfileComponent],
         bootstrap: [websites_app_component_1.WebsitesAppComponent],
-        providers: [
-            user_service_1.UserService
-        ]
+        providers: [user_service_1.UserService]
     })
 ], AppModule);
 exports.AppModule = AppModule;
