@@ -26,8 +26,8 @@ export class UserService {
     }
 
     //updates the user in local users array whose id matches the userId parameter
-    updateUser(userID, user) {
-        let thisUser: IUser = this.findUserById(userID);
+    updateUser(userId, user) {
+        let thisUser: IUser = this.findUserById(userId);
         thisUser.userName = user.userName;
         thisUser.password = user.password;
         thisUser.firstName = user.firstName;
@@ -38,6 +38,15 @@ export class UserService {
     deleteUser(userId) {
         USERS.splice(USERS.findIndex(user => user.id === userId), 1);
     }
+
+    //generates a userId       (In Progress)
+   // generateId(): number {
+   //     let newId: number;
+    //    do {
+    //        newID = Math.random() * 1000;
+    //    } while (USERS.findUserById(newId))
+    //    return newId;
+   // }
 
 
 }
