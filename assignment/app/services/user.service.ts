@@ -39,6 +39,15 @@ export class UserService {
         USERS.splice(USERS.findIndex(user => user.id === userId), 1);
     }
 
+    //generates a userId       (In Progress)
+   // generateId(): number {
+   //     let newId: number;
+    //    do {
+    //        newID = Math.random() * 1000;
+    //    } while (USERS.findUserById(newId))
+    //    return newId;
+   // }
+
 
 }
 

@@ -1,12 +1,12 @@
 ﻿<div class="container-fluid">
     <h1 class="labelNorm">Login</h1>
     <div>
-        <form autocomplete="off"  (ngSubmit)="login(formValues)">
+        <form autocomplete="off" #loginForm="ngForm" (ngSubmit)="login(formValues)">
             <div class="form-group">
-                <input (ngModule)="username" name="username" class="form-control" type="text" placeholder="username" />
+                <input (ngModel)="username" name="username" class="form-control" type="text" placeholder="username" />
             </div>
             <div class="form-group">
-                <input (ngModule)="password" name="password" class="form-control" type="password" placeholder="password" />
+                <input (ngModel)="password" name="password" class="form-control" type="password" placeholder="password" />
             </div>
             <button type="submit" (click)="login(formValues)" [routerLink]="['/user/:uid']"
                     class="btn btn-primary">Login</button>

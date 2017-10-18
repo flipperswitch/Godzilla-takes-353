@@ -3,33 +3,33 @@
      
      <div class="navbar-brand navbar-header topBar band fulldiv">Profile
          <ul class="pull-right band">
-             <a [routerLink]="['/user',userId]">
+             <a (click)="update(formValues)" [routerLink]="['/user',userId]">
                  <span class="glyphicon glyphicon-ok band fulldiv"></span>
              </a></ul>
      </div>
 
      <div class="myform">
-         <div class="form-group">
-             <label for="text">Username</label>
-             <input (ngModule)="username" name="username" class="form-control" type="text" placeholder="Username">
-         </div>
-         <div class="form-group">
-             <label for="email">Email</label>
-             <input (ngModule)="email" name="email" class="form-control" type="email" placeholder="Email">
-         </div>
-         <div class="form-group">
-             <label for="text">First Name</label>
-             <input (ngModule)="firstName" name="firstName" class="form-control" type="text" placeholder="First Name">
-         </div>
-         <div class="form-group">
-             <label for="text">Last Name</label>
-             <input (ngModule)="lastName" name="lastName" class="form-control" type="text" placeholder="Last Name">
-         </div>
-         <a href="website-list.html"><button type="button"
-                                             class="btn btn-success">Websites</button></a>
-         <<a [routerLink]="['/login']"><button type="button"
-            class="btn btn-danger">Logout</button></a>
-     </div>
+         <form autocomplete="off" #profileForm="ngForm" (ngSubmit)="update(formValues)">
+             <div class="form-group">
+                 <label for="text">Username</label>
+                 <input [(ngModule)]="username" name="username" class="form-control" type="text" placeholder="Username">
+             </div>
+             <div class="form-group">
+                 <label for="email">Email</label>
+                 <input [(ngModel)]="email" name="email" class="form-control" type="email" placeholder="Email">
+             </div>
+             <div class="form-group">
+                 <label for="text">First Name</label>
+                 <input [(ngModel)]="firstName" name="firstName" class="form-control" type="text" placeholder="First Name">
+             </div>
+             <div class="form-group">
+                 <label for="text">Last Name</label>
+                 <input [(ngModel)]="lastName" name="lastName" class="form-control" type="text" placeholder="Last Name">
+             </div>
+                 <button type="button" href="website-list.html" class="btn btn-success">Websites</button>
+             <button type="button" [routerLink]="['/login']" class="btn btn-danger">Logout</button>
+         </form>
+    </div>
  </div>
             <div class ="navbar-brand navbar-footer bottomBar band fulldiv">
                     <ul class="pull-right band">

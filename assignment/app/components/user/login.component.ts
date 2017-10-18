@@ -2,7 +2,7 @@
 import { UserService } from '../../services/user.service'
 import { Router } from '@angular/router'
 import { ActivatedRoute } from '@angular/router'
-import { FormsModule } from '@angular/forms'
+
 
 
 @Component({
