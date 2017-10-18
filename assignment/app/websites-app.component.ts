@@ -2,7 +2,7 @@
 
 @Component({
     selector: 'websites-app',
-    template: '<websites-list></websites-list>'
+    template: '<router-outlet> </router-outlet>'
 })
 
 export class WebsitesAppComponent {

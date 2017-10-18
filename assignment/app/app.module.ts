@@ -12,7 +12,7 @@ import { ProfileComponent } from './components/user/profile.component'
 @NgModule({
     imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
     declarations: [WebsitesAppComponent, LoginComponent, RegisterComponent, ProfileComponent ],
-    bootstrap: [WebsitesAppComponent ],
+    bootstrap: [WebsitesAppComponent],
     providers: [ UserService ]
 })
 

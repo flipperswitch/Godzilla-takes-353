@@ -1,17 +1,17 @@
 ﻿<div class="container-fluid">
     <h1 class="labelNorm">Register</h1>
     <div class="form-group">
-        <input type="text" placeholder="username">
+        <input (ngModule)="username" name="username" class="form-control" type="text" placeholder="username">
     </div>
     <div class="form-group">
-        <input type="password" placeholder="password">
+        <input (ngModule)="password" name="password" class="form-control" type="password" placeholder="password">
     </div>
     <div class="form-group">
-        <input type="password" placeholder="verify password">
+        <input (ngModule)="password" name="password" class="form-control" type="password" placeholder="verify password">
     </div>
-        <a href="profile.html"><button type="button"
-            class="btn btn-primary">Register</button></a>
-        <a href="login.html"><button type="button"
-            class="btn btn-danger">Cancel</button></a>
+        <a [routerLink]="['/user',userId]"><button type="button"
+            class="btn btn-success">Register</button></a>
+        <a [routerLink]="['/login']"><button type="button"
+            class="btn btn-primary">Cancel</button></a>
 </div>
 

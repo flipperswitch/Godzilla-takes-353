@@ -17,7 +17,7 @@ var WebsitesAppComponent = (function () {
 WebsitesAppComponent = __decorate([
     core_1.Component({
         selector: 'websites-app',
-        template: '<websites-list></websites-list>'
+        template: '<router-outlet> </router-outlet>'
     }),
     __metadata("design:paramtypes", [])
 ], WebsitesAppComponent);

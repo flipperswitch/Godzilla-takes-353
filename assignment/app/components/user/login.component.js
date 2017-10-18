@@ -8,20 +8,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var user_service_1 = require("../../services/user.service");
+var router_1 = require("@angular/router");
 var LoginComponent = (function () {
-    function LoginComponent(userService) {
+    function LoginComponent(userService, router) {
         this.userService = userService;
+        this.router = router;
     }
+    LoginComponent.prototype.login = function (formValues) {
+        this.errorMessage = "";
+        var user = this.userService.findUserByCredentials(formValues.username, formValues.password);
+        if (user) {
+            //redirect to /user/user.id
+            this.router.navigate(['/user: uid', user.id]);
+        }
+        else {
+            //show error message
+            this.errorMessage = "user not found.";
+        }
+    };
     return LoginComponent;
 }());
 LoginComponent = __decorate([
     core_1.Component({
         templateUrl: 'app/components/user/login.component.html'
     }),
-    __metadata("design:paramtypes", [user_service_1.UserService])
+    __metadata("design:paramtypes", [user_service_1.UserService, router_1.Router])
 ], LoginComponent);
 exports.LoginComponent = LoginComponent;
 //# sourceMappingURL=login.component.js.map
