@@ -1,6 +1,6 @@
 ﻿import { Component } from '@angular/core'
 import { UserService } from '../../services/user.service'
-import { ActivatedRoute } from '@angular/router'
+import { Router } from '@angular/router'
 import { IUser } from './user.model'
 
 @Component({
@@ -9,10 +9,10 @@ import { IUser } from './user.model'
 
 export class RegisterComponent {
     errorMessage: any;
-    constructor(private userService: UserService, private route: ActivatedRoute) {
+    constructor(private userService: UserService, private route: Router) {
     }
 
-    register(formValues): number {
+    register(formValues){
         this.errorMessage = "";
         if (formValues.password1 === formValues.password2) {
             let user: IUser;
@@ -20,9 +20,10 @@ export class RegisterComponent {
             user.userName = formValues.username;
             user.password = formValues.password1;
             this.userService.createUser(user);
-            return user.id;
+            this.route.navigate(['/user'], user.id);
         } else {
             this.errorMessage = "Passwords do not match.";
+            console.error(this.errorMessage);
         }
     }
 
