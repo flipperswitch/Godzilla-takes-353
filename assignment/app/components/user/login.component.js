@@ -21,7 +21,7 @@ var LoginComponent = (function () {
         var user = this.userService.findUserByCredentials(formValues.username, formValues.password);
         if (user) {
             //redirect to /user/user.id
-            this.router.navigate(['/user: uid', user.id]);
+            this.router.navigate(['/user', user.id]);
         }
         else {
             //show error message
