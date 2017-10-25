@@ -1,8 +1,6 @@
 ﻿import { Component } from '@angular/core'
 import { UserService } from '../../services/user.service'
 import { Router } from '@angular/router'
-import { ActivatedRoute } from '@angular/router'
-
 
 
 @Component({
@@ -23,6 +21,7 @@ export class LoginComponent {
         } else {
             //show error message
             this.errorMessage = "user not found.";
+            console.error(this.errorMessage);
         }
     }
 
