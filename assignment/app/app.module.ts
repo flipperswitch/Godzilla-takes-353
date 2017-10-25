@@ -8,9 +8,10 @@ import { UserService } from './services/user.service'
 import { LoginComponent } from './components/user/login.component'
 import { RegisterComponent } from './components/user/register.component'
 import { ProfileComponent } from './components/user/profile.component'
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
-    imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
+    imports: [BrowserModule, RouterModule.forRoot(appRoutes), FormsModule],
     declarations: [WebsitesAppComponent, LoginComponent, RegisterComponent, ProfileComponent ],
     bootstrap: [WebsitesAppComponent],
     providers: [ UserService ]

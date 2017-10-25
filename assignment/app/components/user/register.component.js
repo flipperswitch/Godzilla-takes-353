@@ -22,7 +22,7 @@ var RegisterComponent = (function () {
             var user = void 0;
             user.id = 145; //will eventually use generateId() from UserService
             user.userName = formValues.username;
-            user.password = formValues.password;
+            user.password = formValues.password1;
             this.userService.createUser(user);
             return user.id;
         }
