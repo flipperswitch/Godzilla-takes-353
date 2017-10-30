@@ -85,11 +85,17 @@ list-group-item{
 .topBar{
     position: fixed;
     top: 0%;
+    padding-right: 1%;
+}
+
+.barButton {
+    background-color: transparent;
 }
 
 .bottomBar{
     position: fixed;
     bottom: 0%;
+    padding-right: 1%;
 }
 
 .myLists{

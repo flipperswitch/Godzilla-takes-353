@@ -14,11 +14,12 @@ export class ProfileComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.user = this.userService.findUserById(this.route.snapshot.params['uid'])
+        this.user = this.userService.findUserById(+this.route.snapshot.params['uid'])
+        console.log(this.user);
     }
 
     update(formValues) {
-        let newInfo: IUser;
+        let newInfo = <IUser>{};
         newInfo.id = this.user.id;
         newInfo.password = this.user.password;
         newInfo.userName = formValues.username;
