@@ -10,6 +10,7 @@
         <div class="form-group">
             <input (ngModel)="password2" name="password2" class="form-control" type="password" placeholder="verify password">
         </div>
+        <div *ngIf="this.errorMessage>''" class="myError"><p>{{this.errorMessage}}</p></div>
             <button type="submit" (click)="register(registerForm.value)" class="btn btn-success">Register</button>
             <button type="button" [routerLink]="['/login']" class="btn btn-primary">Cancel</button>
     </form>

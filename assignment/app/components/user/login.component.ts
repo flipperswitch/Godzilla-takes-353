@@ -21,7 +21,6 @@ export class LoginComponent {
         } else {
             //show error message
             this.errorMessage = "user not found.";
-            console.error(this.errorMessage);
         }
     }
 

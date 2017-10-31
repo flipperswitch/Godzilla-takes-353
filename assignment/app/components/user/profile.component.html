@@ -2,29 +2,29 @@
  <div class="container-fluid">
      
      <div class="navbar-brand navbar-header topBar band fulldiv">Profile
-         <ul class="pull-right band">
-             <button type="submit" (click)="update(profileForm.value)">
-                 <span class="glyphicon glyphicon-ok band fulldiv"></span>
-             </button></ul>
+         <div class="pull-right band">
+             <button (click)="update(profileForm.value)" type="submit" class="band fulldiv barButton">
+                 <span class="glyphicon glyphicon-ok band fulldiv" ></span>
+             </button></div>
      </div>
 
      <div class="myform">
          <form autocomplete="off" #profileForm="ngForm" (ngSubmit)="update(profileForm.value)">
              <div class="form-group">
-                 <label for="text">Username</label>
-                 <input [(ngModel)]="username" name="username" class="form-control" type="text">
+                 <label class="labelNorm" for="text">Username</label>
+                 <input [(ngModel)]="user.userName" name="username" class="form-control" type="text">
              </div>
              <div class="form-group">
-                 <label for="email">Email</label>
-                 <input [(ngModel)]="email" name="email" class="form-control" type="email">
+                 <label class="labelNorm" for="email">Email</label>
+                 <input [(ngModel)]="user.email" name="email" class="form-control" type="email">
              </div>
              <div class="form-group">
-                 <label for="text">First Name</label>
-                 <input [(ngModel)]="firstName" name="firstName" class="form-control" type="text">
+                 <label class="labelNorm" for="text">First Name</label>
+                 <input [(ngModel)]="user.firstName" name="firstName" class="form-control" type="text">
              </div>
              <div class="form-group">
-                 <label for="text">Last Name</label>
-                 <input [(ngModel)]="lastName" name="lastName" class="form-control" type="text">
+                 <label class="labelNorm" for="text">Last Name</label>
+                 <input [(ngModel)]="user.lastName" name="lastName" class="form-control" type="text">
              </div>
                  <button type="button" href="website-list.html" class="btn btn-success">Websites</button>
                  <button type="button" [routerLink]="['/login']" class="btn btn-danger">Logout</button>

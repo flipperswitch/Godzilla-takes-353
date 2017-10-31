@@ -17,15 +17,16 @@ var ProfileComponent = (function () {
         this.route = route;
     }
     ProfileComponent.prototype.ngOnInit = function () {
-        this.user = this.userService.findUserById(this.route.snapshot.params['uid']);
+        this.user = this.userService.findUserById(+this.route.snapshot.params['uid']);
     };
     ProfileComponent.prototype.update = function (formValues) {
-        var newInfo;
+        var newInfo = {};
         newInfo.id = this.user.id;
         newInfo.password = this.user.password;
         newInfo.userName = formValues.username;
         newInfo.firstName = formValues.firstName;
         newInfo.lastName = formValues.lastName;
+        newInfo.email = formValues.email;
         this.userService.updateUser(this.user.id, newInfo);
     };
     return ProfileComponent;

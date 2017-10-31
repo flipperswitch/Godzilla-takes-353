@@ -32,6 +32,7 @@ export class UserService {
         thisUser.password = user.password;
         thisUser.firstName = user.firstName;
         thisUser.lastName = user.lastName;
+        thisUser.email = user.email;
     }
 
     //removes the user whose id matches the userID parameter
