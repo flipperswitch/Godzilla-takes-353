@@ -26,7 +26,6 @@ var LoginComponent = (function () {
         else {
             //show error message
             this.errorMessage = "user not found.";
-            console.error(this.errorMessage);
         }
     };
     return LoginComponent;

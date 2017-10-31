@@ -92,6 +92,10 @@ list-group-item{
     background-color: transparent;
 }
 
+.myError {
+    color: red;
+}
+
 .bottomBar{
     position: fixed;
     bottom: 0%;

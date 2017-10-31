@@ -15,7 +15,6 @@ export class ProfileComponent implements OnInit {
 
     ngOnInit() {
         this.user = this.userService.findUserById(+this.route.snapshot.params['uid'])
-        console.log(this.user);
     }
 
     update(formValues) {
@@ -25,6 +24,7 @@ export class ProfileComponent implements OnInit {
         newInfo.userName = formValues.username;
         newInfo.firstName = formValues.firstName;
         newInfo.lastName = formValues.lastName;
+        newInfo.email = formValues.email;
        this.userService.updateUser(this.user.id, newInfo);
     }
 

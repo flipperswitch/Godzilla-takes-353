@@ -15,7 +15,6 @@ export class RegisterComponent {
 
     register(formValues){
         this.errorMessage = "";
-        console.log(formValues);
         if (formValues.password1 === formValues.password2) {
             let user= <IUser>{};
             user.id = 145; //will eventually use generateId() from UserService
@@ -27,7 +26,6 @@ export class RegisterComponent {
             this.route.navigate(['/user', user.id]);
         } else {
             this.errorMessage = "Passwords do not match.";
-            console.error(this.errorMessage);
         }
     }
 

@@ -18,7 +18,6 @@ var ProfileComponent = (function () {
     }
     ProfileComponent.prototype.ngOnInit = function () {
         this.user = this.userService.findUserById(+this.route.snapshot.params['uid']);
-        console.log(this.user);
     };
     ProfileComponent.prototype.update = function (formValues) {
         var newInfo = {};
@@ -27,6 +26,7 @@ var ProfileComponent = (function () {
         newInfo.userName = formValues.username;
         newInfo.firstName = formValues.firstName;
         newInfo.lastName = formValues.lastName;
+        newInfo.email = formValues.email;
         this.userService.updateUser(this.user.id, newInfo);
     };
     return ProfileComponent;

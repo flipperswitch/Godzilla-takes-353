@@ -18,7 +18,6 @@ var RegisterComponent = (function () {
     }
     RegisterComponent.prototype.register = function (formValues) {
         this.errorMessage = "";
-        console.log(formValues);
         if (formValues.password1 === formValues.password2) {
             var user = {};
             user.id = 145; //will eventually use generateId() from UserService
@@ -31,7 +30,6 @@ var RegisterComponent = (function () {
         }
         else {
             this.errorMessage = "Passwords do not match.";
-            console.error(this.errorMessage);
         }
     };
     return RegisterComponent;

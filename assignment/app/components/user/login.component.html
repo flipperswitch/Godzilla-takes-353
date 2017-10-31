@@ -8,6 +8,7 @@
             <div class="form-group">
                 <input (ngModel)="password" name="password" class="form-control" type="password" placeholder="password" />
             </div>
+            <div *ngIf="this.errorMessage>''" class="myError"><p>{{this.errorMessage}}</p></div>
             <button type="submit" (click)="login(loginForm.value)"
                     class="btn btn-primary">Login</button>
             <button type="button" [routerLink]="['/register']"
