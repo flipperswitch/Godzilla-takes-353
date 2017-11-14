@@ -36,15 +36,15 @@ namespace WebApi.Controllers
         }
 
         // POST api/<controller>
-        public void Post([FromBody]User user)
+        public int Post([FromBody]User user)
         {
-            _userRepository.Update(user);
+            return _userRepository.Add(user);
         }
 
         // PUT api/<controller>/5
-        public int Put([FromBody]User user)
+        public void Put([FromBody]User user)
         {
-            return _userRepository.Add(user);
+            _userRepository.Update(user);
         }
 
         // DELETE api/<controller>/5
