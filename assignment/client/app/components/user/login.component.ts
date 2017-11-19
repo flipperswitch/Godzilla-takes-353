@@ -1,6 +1,7 @@
 ﻿import { Component } from '@angular/core'
 import { UserService } from '../../services/user.service'
 import { Router } from '@angular/router'
+import { IUser } from './user.model'
 
 
 @Component({
@@ -14,8 +15,8 @@ export class LoginComponent {
     }
     login(formValues) {
         this.errorMessage = "";
-        let user = this.userService.findUserByCredentials(formValues.username, formValues.password);
-        if (user) {
+        let user: IUser = this.userService.findUserByCredentials(formValues.username, formValues.password);
+        if (user != null) {
             //redirect to /user/user.id
             this.router.navigate(['/user', user.id]);
         } else {

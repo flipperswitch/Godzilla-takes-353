@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var user_service_1 = require("../../services/user.service");
 var router_1 = require("@angular/router");
@@ -18,7 +17,8 @@ var ProfileComponent = (function () {
         this.route = route;
     }
     ProfileComponent.prototype.ngOnInit = function () {
-        this.user = this.userService.findUserById(+this.route.snapshot.params['uid']);
+        var _this = this;
+        this.userService.findUserById(+this.route.snapshot.params['uid']).subscribe(function (user) { return _this.user; });
     };
     ProfileComponent.prototype.update = function (formValues) {
         var newInfo = {};

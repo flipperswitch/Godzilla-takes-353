@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var login_component_1 = require("./components/user/login.component");
 var profile_component_1 = require("./components/user/profile.component");
 var register_component_1 = require("./components/user/register.component");

@@ -1,43 +1,65 @@
-﻿import { Injectable } from '@angular/core'
+﻿/// <reference path="../app.module.ts" />
+import { Injectable } from '@angular/core'
 import { IUser } from '../components/user/user.model'
+import { Http, Response} from '@angular/http'
+import { Observable } from 'rxjs/RX'
+import 'rxjs/add/operator/map'
 
 
 @Injectable()
-
 export class UserService {
-    //returns the user in local USERS array whose id matches the id parameter
-    findUserById(id): IUser {
-        return USERS.find(user => user.id === id);
+    currentUser: IUser;
+    address = "http://localhost:57301/api/users/";
+
+    constructor(private http: Http) {}
+
+
+    //Example code from professor from class:
+    //loginUser(username: string, password: string) {
+    //     this.currentUser = this.http.get(*insertURLforGetRequestHere*).map((response: Response) => {
+    //        return<IUser>response.json();
+   //    }).subscribe( user => {this.currentUser = user});
+   // }
+
+    //returns an observable user object retrieved from the Users API
+    findUserById(id): Observable<IUser> {
+        return this.http.get(this.address + "?id=" + id).map((response: Response) => { return<IUser>response.json(); });
     }
 
     //adds the user parameter instance to the local users array
     createUser(user) {
-        USERS.push(user);
+        const body = user.stringify.JSON();
+
+        this.http.post(this.address, body, "content-type=application/json");
     }
 
     //returns the user in local users array whose username matches the parameter username
-    findUserByUsername(username): IUser {
-        return USERS.find(user => user.userName === username);
+    findUserByUsername(username): Observable<IUser> {
+        return this.http.get(this.address + "?userName=" + username).map((response: Response) => { return <IUser>response.json(); });
     }
 
     //returns the user whose username and passowrd match the username and password parameters
     findUserByCredentials(username, password): IUser {
-        return USERS.find(user => (user.userName === username && user.password === password));
+        var user = this.http.get(this.address + "?userName=" + username)
+            .map((response: Response) => { return <IUser>response.json(); }).subscribe(u => user);
+        if (user.password == password) {
+            return user;
+        } else {
+            return null;
+        }
+
     }
 
     //updates the user in local users array whose id matches the userId parameter
     updateUser(userId, user) {
-        let thisUser: IUser = this.findUserById(userId);
-        thisUser.userName = user.userName;
-        thisUser.password = user.password;
-        thisUser.firstName = user.firstName;
-        thisUser.lastName = user.lastName;
-        thisUser.email = user.email;
+        const body = user.stringify.JSON();
+
+        this.http.put(this.address, body, "content-type=application/json");
     }
 
     //removes the user whose id matches the userID parameter
     deleteUser(userId) {
-        USERS.splice(USERS.findIndex(user => user.id === userId), 1);
+        this.http.delete(this.address+userId);
     }
 
 }

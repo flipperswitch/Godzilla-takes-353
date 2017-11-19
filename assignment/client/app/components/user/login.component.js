@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var user_service_1 = require("../../services/user.service");
 var router_1 = require("@angular/router");
@@ -20,7 +19,7 @@ var LoginComponent = (function () {
     LoginComponent.prototype.login = function (formValues) {
         this.errorMessage = "";
         var user = this.userService.findUserByCredentials(formValues.username, formValues.password);
-        if (user) {
+        if (user != null) {
             //redirect to /user/user.id
             this.router.navigate(['/user', user.id]);
         }

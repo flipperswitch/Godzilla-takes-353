@@ -3,9 +3,7 @@
      
      <div class="navbar-brand navbar-header topBar band fulldiv">Profile
          <div class="pull-right band">
-             <button (click)="update(profileForm.value)" type="submit" class="band fulldiv barButton">
-                 <span class="glyphicon glyphicon-ok band fulldiv" ></span>
-             </button></div>
+         </div>
      </div>
 
      <div class="myform">
@@ -26,7 +24,7 @@
                  <label class="labelNorm" for="text">Last Name</label>
                  <input [(ngModel)]="user.lastName" name="lastName" class="form-control" type="text">
              </div>
-                 <button type="button" href="website-list.html" class="btn btn-success">Websites</button>
+                 <button (click)="update(profileForm.value)" type="submit" class="btn btn-success">Submit Changes</button>
                  <button type="button" [routerLink]="['/login']" class="btn btn-danger">Logout</button>
          </form>
     </div>
