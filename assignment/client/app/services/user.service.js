@@ -38,10 +38,13 @@ var UserService = (function () {
     };
     //returns the user whose username and passowrd match the username and password parameters
     UserService.prototype.findUserByCredentials = function (username, password) {
-        var user = this.http.get(this.address + "?userName=" + username)
-            .map(function (response) { return response.json(); }).subscribe(function (u) { return user; });
-        if (user.password == password) {
-            return user;
+        var foundUser = {};
+        this.http.get(this.address + "?userName=" + username)
+            .map(function (response) { return response.json(); })
+            .subscribe(function (user) { foundUser = user; });
+        console.log(foundUser.id);
+        if (foundUser.password === password) {
+            return foundUser;
         }
         else {
             return null;

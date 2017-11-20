@@ -40,10 +40,13 @@ export class UserService {
 
     //returns the user whose username and passowrd match the username and password parameters
     findUserByCredentials(username, password): IUser {
-        var user = this.http.get(this.address + "?userName=" + username)
-            .map((response: Response) => { return <IUser>response.json(); }).subscribe(u => user);
-        if (user.password == password) {
-            return user;
+        let foundUser = <IUser>{};
+        this.http.get(this.address + "?userName=" + username)
+            .map((response: Response) => { return <IUser>response.json(); })
+            .subscribe(user => {foundUser = user});
+        console.log(foundUser.id);
+        if (foundUser.password === password) {
+           return foundUser;
         } else {
             return null;
         }
