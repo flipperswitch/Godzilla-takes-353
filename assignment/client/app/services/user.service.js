@@ -11,11 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /// <reference path="../app.module.ts" />
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+var RX_1 = require("rxjs/RX");
 require("rxjs/add/operator/map");
 var UserService = (function () {
     function UserService(http) {
         this.http = http;
-        this.address = "http://localhost:57301/api/users/";
+        this.address = "http://localhost:55528/api/users/";
     }
     //Example code from professor from class:
     //loginUser(username: string, password: string) {
@@ -38,17 +39,12 @@ var UserService = (function () {
     };
     //returns the user whose username and passowrd match the username and password parameters
     UserService.prototype.findUserByCredentials = function (username, password) {
-        var foundUser = {};
-        this.http.get(this.address + "?userName=" + username)
-            .map(function (response) { return response.json(); })
-            .subscribe(function (user) { foundUser = user; });
-        console.log(foundUser.id);
-        if (foundUser.password === password) {
-            return foundUser;
-        }
-        else {
-            return null;
-        }
+        var url = this.address + "?userName=" + username;
+        console.log("calling: " + url);
+        return this.http.get(url).map(function (response) { return response.json(); }).catch(this.handleError);
+    };
+    UserService.prototype.handleError = function (error) {
+        return RX_1.Observable.throw(error.statusText);
     };
     //updates the user in local users array whose id matches the userId parameter
     UserService.prototype.updateUser = function (userId, user) {
