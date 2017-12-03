@@ -17,16 +17,19 @@ var LoginComponent = (function () {
         this.router = router;
     }
     LoginComponent.prototype.login = function (formValues) {
+        var _this = this;
         this.errorMessage = "";
-        var user = this.userService.findUserByCredentials(formValues.username, formValues.password);
-        if (user != null) {
-            //redirect to /user/user.id
-            this.router.navigate(['/user', user.id]);
-        }
-        else {
-            //show error message
-            this.errorMessage = "user not found.";
-        }
+        this.userService.findUserByCredentials(formValues.username, formValues.password).subscribe(function (u) {
+            console.log(u);
+            console.log(formValues.password);
+            if (u != null && u.password === formValues.password) {
+                //redirect to /user/user.id
+                _this.router.navigate(['/user', u.id]);
+            }
+            else {
+                _this.errorMessage = "user not found.";
+            }
+        });
     };
     return LoginComponent;
 }());

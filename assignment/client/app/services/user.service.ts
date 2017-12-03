@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class UserService {
     currentUser: IUser;
-    address = "http://localhost:57301/api/users/";
+    address = "http://localhost:55528/api/users/";
 
     constructor(private http: Http) {}
 
@@ -39,16 +39,16 @@ export class UserService {
     }
 
     //returns the user whose username and passowrd match the username and password parameters
-    findUserByCredentials(username, password): IUser {
-        var user = this.http.get(this.address + "?userName=" + username)
-            .map((response: Response) => { return <IUser>response.json(); }).subscribe(u => user);
-        if (user.password == password) {
-            return user;
-        } else {
-            return null;
+    findUserByCredentials(username, password): Observable<IUser> {
+            let url = this.address + "?userName=" + username;
+            console.log("calling: " + url);
+            return this.http.get(url).map((response: Response) => { return <IUser>response.json(); }).catch(this.handleError);
         }
 
-    }
+        private handleError(error: Response) {
+            return Observable.throw(error.statusText)
+        }
+
 
     //updates the user in local users array whose id matches the userId parameter
     updateUser(userId, user) {

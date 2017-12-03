@@ -15,14 +15,18 @@ export class LoginComponent {
     }
     login(formValues) {
         this.errorMessage = "";
-        let user: IUser = this.userService.findUserByCredentials(formValues.username, formValues.password);
-        if (user != null) {
-            //redirect to /user/user.id
-            this.router.navigate(['/user', user.id]);
-        } else {
-            //show error message
-            this.errorMessage = "user not found.";
-        }
+
+        this.userService.findUserByCredentials(formValues.username, formValues.password).subscribe(u => {
+            console.log(u);
+            console.log(formValues.password);
+            if (u != null && u.password === formValues.password) {
+                //redirect to /user/user.id
+                this.router.navigate(['/user', u.id]);
+            } else {
+                this.errorMessage = "user not found.";
+            }
+        });
     }
+
 
 }

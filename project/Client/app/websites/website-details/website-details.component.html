@@ -1,0 +1,24 @@
+﻿<div class="container">
+    <img [src]="website?.imageUrl" [alt]="website?.name" class="website-image">
+
+    <div class="row">
+        <div class="col-md-11">
+            <h2>{{website?.name}} </h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div><strong>Created Date:</strong> {{website?.createdDate}}</div>
+            <div><strong>Created Time:</strong> {{website?.createdTime}}</div>
+            <div><strong>Fee:</strong> ${{website?.membershipFee}}</div>
+        </div>
+        <div class="col-md-6">
+            <address>
+                <strong>Owner Address:</strong><br />
+                {{website?.ownerAddress?.address}}<br />
+                {{website?.ownerAddress?.city}}, {{website?.ownerAddress?.country}}
+            </address>
+        </div>
+    </div>
+</div>
