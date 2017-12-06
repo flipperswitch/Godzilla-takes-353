@@ -9,7 +9,7 @@ using System.Web;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using WebApi.Models;
-using WebApi.Models.Wikipedia;
+
 
 namespace WebApi.App_Start
 {
@@ -483,25 +483,25 @@ namespace WebApi.App_Start
                 }
                 
             }
-            description = ParseResponse(responseString).Extract;
+          //  description = ParseResponse(responseString).Extract;
             return description; // description;
         }
 
-        public static WikipediaPageExtract ParseResponse(string responseString)
-        {
-            //dynamic responseJson = JsonConvert.DeserializeObject(responseString);
+       //// public static WikipediaPageExtract ParseResponse(string responseString)
+       // {
+       //     //dynamic responseJson = JsonConvert.DeserializeObject(responseString);
 
-            var responseJson = JsonConvert.DeserializeObject<RootObject>(responseString);
+       //     var responseJson = JsonConvert.DeserializeObject<RootObject>(responseString);
 
-            var firstKey = responseJson.query.pages.First().Key;
+       //     var firstKey = responseJson.query.pages.First().Key;
           
-            var response = new WikipediaPageExtract
-            {
-                Title = responseJson.query.pages[firstKey].title,
-                Extract = responseJson.query.pages[firstKey].extract,
-                PageId = responseJson.query.pages[firstKey].pageid
-            };
-            return response;
-        }
+       //     var response = new WikipediaPageExtract
+       //     {
+       //         Title = responseJson.query.pages[firstKey].title,
+       //         Extract = responseJson.query.pages[firstKey].extract,
+       //         PageId = responseJson.query.pages[firstKey].pageid
+       //     };
+       //     return response;
+       // }
     }
 }

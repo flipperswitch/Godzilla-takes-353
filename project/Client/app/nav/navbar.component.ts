@@ -21,7 +21,7 @@ export class NavbarComponent {
     searchImages(searchTermForm) {
         console.log(searchTermForm.searchTerm)
         this.websiteService.searchImages(searchTermForm.searchTerm).subscribe(data => {
-            let results: string[];
+            let results: String[];
             console.log(data);
             for (let i = 0; i < data.hits.length; i++) {
                 results[i] = data.hits[i].webformatURL;

@@ -14,7 +14,7 @@ namespace WebApi.Models
         public string Cateory { get; set; }
         public string Description { get; set; }
         public string Status { get; set; }
-        public string CreatedTime { get; set; }
+        public DateTime CreatedTime { get; set; }
         public double ApproximateValue { get; set; }
         public string ImageUrl { get; set; }
         public string SecretIdentifier { get; set; }
