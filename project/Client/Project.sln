@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Week10LectureCode", ".", "{67F1827B-8663-4009-B131-AE8164A5B1DF}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Week10LectureCode", ".", "{6339C600-CE5A-4707-9BAB-E44AA39D2D0B}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_60938"
@@ -28,16 +28,24 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "..\WebApi\WebApi.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Tests", "WebApi.Tests\WebApi.Tests.csproj", "{C134CCE4-E5D0-42B1-ACA1-57F83D9E493C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D37902C0-FADC-459A-9B73-D96C6F139C5D}"
+	ProjectSection(SolutionItems) = preProject
+		Performance1.psess = Performance1.psess
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{67F1827B-8663-4009-B131-AE8164A5B1DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{67F1827B-8663-4009-B131-AE8164A5B1DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{67F1827B-8663-4009-B131-AE8164A5B1DF}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{67F1827B-8663-4009-B131-AE8164A5B1DF}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{6339C600-CE5A-4707-9BAB-E44AA39D2D0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6339C600-CE5A-4707-9BAB-E44AA39D2D0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6339C600-CE5A-4707-9BAB-E44AA39D2D0B}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{6339C600-CE5A-4707-9BAB-E44AA39D2D0B}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{D77EAE7C-9DF7-4FED-8106-C216C47A4460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D77EAE7C-9DF7-4FED-8106-C216C47A4460}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D77EAE7C-9DF7-4FED-8106-C216C47A4460}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,5 +57,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EE9EA33E-8DD7-4ACF-B824-27F5DA95A64D}
 	EndGlobalSection
 EndGlobal

@@ -17,8 +17,8 @@ var WebsiteService = (function () {
         this.http = http;
         this.constants = constants;
         //API websites as local variables for easy change when port changes on different runs
-        this.websitesUrl = "http://localhost:50272/api/websites";
-        this.photosUrl = "http://localhost:50272/api/photos";
+        this.websitesUrl = "http://localhost:65058/api/websites";
+        this.photosUrl = "http://localhost:65058/api/photos";
     }
     WebsiteService.prototype.getItems = function () {
         return this.http.get(this.websitesUrl).map(function (response) {
@@ -59,7 +59,7 @@ var WebsiteService = (function () {
     //    resulting images.
     //TODO: add image to html for the page
     WebsiteService.prototype.searchImages = function (searchTerm) {
-        return this.http.get(this.photosUrl + searchTerm).map(function (response) {
+        return this.http.get(this.photosUrl + "?q=" + searchTerm).map(function (response) {
             return response.json();
         }).catch(this.handleError);
     };

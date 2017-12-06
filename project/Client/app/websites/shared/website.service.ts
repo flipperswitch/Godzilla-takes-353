@@ -5,14 +5,16 @@ import { Http, Response } from '@angular/http'
 import { Constants } from './constants'
 import Itemmodel = require("./item.model");
 import Iitem = Itemmodel.Iitem;
+import Photo = require("./photo");
+import Iphotos = Photo.Iphotos;
 
 @Injectable()
 
 export class WebsiteService
 {
     //API websites as local variables for easy change when port changes on different runs
-    private websitesUrl: string = "http://localhost:50272/api/websites";
-    private photosUrl: string = "http://localhost:50272/api/photos";
+    private websitesUrl: string = "http://localhost:65058/api/websites";
+    private photosUrl: string = "http://localhost:65058/api/photos";
 
 
     constructor(private http: Http, private constants: Constants) {}
@@ -68,10 +70,10 @@ export class WebsiteService
     //Method returns an observable asynchronous JSON object containing an array of url strings pointing to
     //    resulting images.
     //TODO: add image to html for the page
-    searchImages(searchTerm: string): Observable<String[]> 
+    searchImages(searchTerm: string): Observable<Iphotos> 
         {    
-        return this.http.get(this.photosUrl + searchTerm).map((response: Response) => {
-            return <String[]>response.json();
+        return this.http.get(this.photosUrl + "?q=" + searchTerm).map((response: Response) => {
+            return <Iphotos>response.json();
         }).catch(this.handleError);
     }
 

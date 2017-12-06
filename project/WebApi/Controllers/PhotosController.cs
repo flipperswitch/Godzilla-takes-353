@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -24,21 +25,31 @@ namespace WebApi.Controllers
         }
 
         // GET api/<controller>/searchTerm
-        public async Task<string> Get(string q)
+        public string Get(string q)
         {
             string term = q.Replace(" ", "+");
 
             string call = this.url + this.key + "&q=" + term + "&image_type=photo";
             string result = null;
             Console.Write(call);
-            HttpResponseMessage response = await client.GetAsync(call);
-            if (response.IsSuccessStatusCode)
+            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(call);
+            webRequest.Method = "GET";
+            webRequest.ContentType = "application/json";
+            webRequest.Accept = "application/json";
+
+
+            using (HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse())
             {
-                result = await response.Content.ReadAsAsync<String>();
+                using (StreamReader responseStream = new StreamReader(webResponse.GetResponseStream()))
+                {
+                    result = responseStream.ReadToEnd();
+                }
+
             }
             Console.Write(result);
             return result;
         }
+
 
         // POST api/<controller>
         public void Post([FromBody]string value)
