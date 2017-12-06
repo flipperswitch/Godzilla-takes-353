@@ -55,10 +55,9 @@
 </div>
 
 
-<simple-modal elementId="searchModal" title="Matching Employees">
+<simple-modal elementId="searchModal" title="Matching Images">
     <div class="list-group">
-        <a class="list-group-item" 
-           *ngFor="let image of foundImages" 
-           [routerLink]="['/websites',employee.websiteId]"><img src={{image}}></a>
+        <div class="list-group-item" 
+           *ngFor="let image of foundImages" ><img src={{image}}></div>
     </div>
 </simple-modal>

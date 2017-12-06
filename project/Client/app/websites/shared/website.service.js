@@ -60,7 +60,12 @@ var WebsiteService = (function () {
     //TODO: add image to html for the page
     WebsiteService.prototype.searchImages = function (searchTerm) {
         return this.http.get(this.photosUrl + "?q=" + searchTerm).map(function (response) {
-            return response.json();
+            var d = response.json();
+            console.log("--");
+            var c = JSON.parse(d);
+            console.log(typeof c);
+            console.log("--");
+            return c;
         }).catch(this.handleError);
     };
     WebsiteService.prototype.handleError = function (error) {

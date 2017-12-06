@@ -73,7 +73,13 @@ export class WebsiteService
     searchImages(searchTerm: string): Observable<Iphotos> 
         {    
         return this.http.get(this.photosUrl + "?q=" + searchTerm).map((response: Response) => {
-            return <Iphotos>response.json();
+            let d = response.json();
+            console.log("--");
+            let c: Iphotos = JSON.parse(d)
+            console.log(typeof c);
+            console.log("--");
+            return c;
+
         }).catch(this.handleError);
     }
 

@@ -15,16 +15,19 @@ var NavbarComponent = (function () {
     function NavbarComponent(auth, websiteService) {
         this.auth = auth;
         this.websiteService = websiteService;
+        this.foundImages = [];
     }
     NavbarComponent.prototype.searchImages = function (searchTermForm) {
+        var _this = this;
         console.log(searchTermForm.searchTerm);
         this.websiteService.searchImages(searchTermForm.searchTerm).subscribe(function (data) {
-            var results;
             console.log(data);
+            console.log(data.totalHits);
             for (var i = 0; i < data.hits.length; i++) {
-                results[i] = data.hits[i].webformatURL;
+                _this.foundImages[i] = data.hits[i].webformatURL;
             }
         });
+        console.log(this.foundImages);
     };
     return NavbarComponent;
 }());
