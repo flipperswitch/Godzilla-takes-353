@@ -3,30 +3,30 @@ import Usermodel = require("../../user/user.model");
 import IUser = Usermodel.IUser;
 
 export interface Iphotos {
-   totalHits: String,
-   hits: Array<Iphoto>,
+   totalHits: number,
+   hits: Iphoto[],
    total: number
 }
 
 export interface Iphoto {
-    previewHeight: String,
+    previewHeight: string,
     likes: number,
-    favorites: String,
-    tags: String,
+    favorites: string,
+    tags: string,
     webformatHeight: number,
     views: number,
     webformatWidth: number,
     previewWidth: number,
-    comments: String,
+    comments: string,
     downloads: number,
-    pageURL: String,
-    previewURL: String,
-    webformatURL: String,
+    pageURL: string,
+    previewURL: string,
+    webformatURL: string,
     imageWidth: number,
     user_id: number,
-    user: String,
-    type: String,
-    id: String,
-    userImageURL: String,
+    user: string,
+    type: string,
+    id: string,
+    userImageURL: string,
     imageHeight: number
 }
