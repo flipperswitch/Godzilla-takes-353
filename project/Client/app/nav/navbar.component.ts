@@ -16,18 +16,6 @@ import { IEmployee } from '../websites/shared/website.model'
 
 export class NavbarComponent {
     foundEmployees: IEmployee[];
-    foundImages: string[] = [];
     constructor(private auth: AuthService, private websiteService: WebsiteService) { }
 
-    searchImages(searchTermForm) {
-        console.log(searchTermForm.searchTerm)
-        this.websiteService.searchImages(searchTermForm.searchTerm).subscribe(data => {
-            console.log(data);
-            console.log(data.totalHits);
-            for (let i = 0; i < data.hits.length; i++) {
-                this.foundImages[i] = data.hits[i].webformatURL;
-            }
-        });
-        console.log(this.foundImages);
-    }
 }

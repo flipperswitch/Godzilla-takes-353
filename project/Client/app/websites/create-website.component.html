@@ -1,9 +1,74 @@
-﻿<h1>New Website</h1>
+﻿<h1>Report an Item Lost</h1>
 <hr>
 <div class="col-md-6">
-    <h3>[Create Website form will go here]</h3>
     <br/>
     <br/>
-    <button type="submit" class="btn btn-primary">Save</button>
-    <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
+    <form autocomplete="off" #lostForm="ngForm" (ngSubmit)="report(lostForm.value)">
+        <div class="form-group">
+            <label for="firstName">Owner's First name:</label>
+            <input (ngModel)="firstName" name="userName" id="firstName" type="text" class="form-control" placeholder="Owner's first name...'" />
+        </div>
+        <div class="form-group">
+            <label for="lastName">Owner's Last Name:</label>
+            <input (ngModel)="lastName" name="lastName" id="lastName" type="text" class="form-control" placeholder="Owner's last name'..." />
+        </div>
+        <div class="form-group">
+            <label for="email">Owner's Email:</label>
+            <input (ngModel)="email" name="email" id="email" type="email" class="form-control" placeholder="Owner's email'..." />
+        </div>
+        <div class="form-group">
+            <label for="phone">Owner's Best Contact Phone Number:</label>
+            <input (ngModel)="phone" name="phone" id="phone" type="text" class="form-control" placeholder="Owner's phone number'..." />
+        </div>
+        <div class="form-group">
+            <label for="category">Item Category:</label>
+            <input (ngModel)="category" name="category" id="category" type="text" class="form-control" placeholder="Item type'..." />
+        </div>
+        <div class="form-group">
+            <label for="description">Please provide a detailed description of your lost item:</label>
+            <textarea (ngModel)="description" name="description" id="description" type="text" class="form-control" placeholder="Enter description here..."> </textarea>
+        </div>
+        <div class="form-group">
+            <label for="value">What is the approximate monetary value for your lost item:</label>
+            <input (ngModel)="value" name="value" id="value" type="number" class="form-control" placeholder="0.00" />
+        </div>
+        <div class="form-group">
+            <label for="location">Where was the item last seen:</label>
+            <input (ngModel)="location" name="location" id="location" type="text" class="form-control" placeholder="Last known location..." />
+        </div>
+        <div class="form-group">
+            <label for="secret">Please describe one thing not included in the basic item description that will identify this item as yours and not someone else's. 
+                (i.e. lables, stickers, contents, name on it, damage in a particular area...etc).  This information will be kept private to confirm ownership.</label>
+            <textarea (ngModel)="secret" name="secret" id="secret" type="text" class="form-control" placeholder="Secret identifying description"></textarea>
+        </div>
+        <div class="form-group">
+            <form id="searchForm" 
+                  #searchForm="ngForm" (ngSubmit)="searchImages(searchForm.value)" 
+                  class="navbar-form navbar-right"  >
+                <div class="form-group">
+                    <label for="searchTerm">Please find a representative photo for your item.</label>
+                    <input (ngModel)="searchTerm" name="searchTerm" type="text" class="form-control" placeholder="Search Images">
+                    <button class="btn btn-default" modal-trigger="searchModal">
+                        Search
+                    </button>
+                </div>
+                <div>
+                    <img src="{{myImage}}" />
+                </div>
+
+            </form>
+        </div>
+        <br/>
+        <br/>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
+    </form>
 </div>
+
+
+<simple-modal elementId="searchModal" title="Matching Images">
+    <div class="list-group">
+        <div class="list-group-item" 
+             *ngFor="let image of foundImages" ><img src={{image}} (click)="selectImage(image)"></div>
+    </div>
+</simple-modal>

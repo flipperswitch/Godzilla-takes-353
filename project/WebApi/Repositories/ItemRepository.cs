@@ -12,7 +12,7 @@ namespace WebApi.Repositories
 
         public ItemRepository()
         {
-            _items = (List<Item>)HttpContext.Current.Application["items"];
+            _items = (List<Item>)HttpContext.Current.Application["Items"];
 
         }
         public List<Item> Get()

@@ -8,7 +8,7 @@ import {LoginComponent} from './user/login.component'
 export const appRoutes:Routes = [
     { path: 'websites/new', component: CreateWebsiteComponent },
     //{ path: 'websites', component: WebsitesListComponent },
-    { path: 'websites', component: WebsitesListComponent, resolve: { websites: WebsitesListResolver } },
+    { path: 'websites', component: WebsitesListComponent, resolve: { items: WebsitesListResolver } },
 
     { path: 'websites/:id', component: WebsiteDetailsComponent},
     // /websites/1 or /websites/foo
