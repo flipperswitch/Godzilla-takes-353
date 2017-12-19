@@ -24,6 +24,9 @@ var AuthService = (function () {
     AuthService.prototype.isAuthenticated = function () {
         return !!this.currentUser;
     };
+    AuthService.prototype.getUserEmail = function () {
+        return this.currentUser.email;
+    };
     return AuthService;
 }());
 AuthService = __decorate([

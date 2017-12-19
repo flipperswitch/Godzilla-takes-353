@@ -24,9 +24,9 @@ namespace WebApi.Controllers
             return _itemService.Get();
         }
 
-        public IEnumerable<Item> GetByOwner(int id)
+        public IEnumerable<LostItemReport> Get(string email)
         {
-            return _itemService.Get().Where(s => s.Id == id);
+            return _itemService.GetByOwner(email).Where(s => s.LostItem.Owner.Email == email);
         }
 
         // GET: api/Items/5

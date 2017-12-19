@@ -21,20 +21,15 @@ var WebsiteService = (function () {
         this.itemsUrl = "http://localhost:65058/api/items";
         this.photosUrl = "http://localhost:65058/api/photos";
     }
+    //Gets all items from the server
     WebsiteService.prototype.getItems = function () {
         return this.http.get(this.itemsUrl).map(function (response) {
             return response.json();
         }).catch(this.handleError);
     };
-    WebsiteService.prototype.getWebsites = function () {
-        //return this.http.get("/api/websites") //observable of Response
-        //instead map it 
-        return this.http.get(this.itemsUrl).map(function (response) {
-            return response.json();
-        }).catch(this.handleError);
-    };
-    WebsiteService.prototype.getWebsite = function (id) {
-        return this.http.get(this.itemsUrl + id).map(function (response) {
+    //Gets lost item reports from the server
+    WebsiteService.prototype.getLostReports = function (email) {
+        return this.http.get(this.itemsUrl + "?email=" + email).map(function (response) {
             return response.json();
         }).catch(this.handleError);
     };
@@ -77,9 +72,12 @@ var WebsiteService = (function () {
                 }
             }
         };
-        var url = this.itemsUrl + "/post";
+        var url = this.itemsUrl;
         var body = JSON.stringify(this.lost);
-        this.http.post(url, body).subscribe(function (res) { return console.log(res.json()); });
+        var header = {
+            'Content-type': 'application/json'
+        };
+        this.http.post(url, body, header).subscribe(function (res) { return console.log(res.json()); });
         console.log(body);
     };
     WebsiteService.prototype.handleError = function (error) {

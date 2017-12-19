@@ -28,10 +28,10 @@ namespace WebApi.Services
             return _items.Get();
         }
 
-        public IEnumerable<Item> GetByOwner (int id)
+        public IEnumerable<LostItemReport> GetByOwner (string email)
         {
 
-            return _items.Get().Where(s => s.Id == id);
+            return _lostReports.Get().Where(s => s.LostItem.Owner.Email == email);
         }
 
 // GET: api/Item/5

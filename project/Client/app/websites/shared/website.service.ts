@@ -16,34 +16,25 @@ import Ilost = LostReportmodel.Ilost;
 
 export class WebsiteService
 {
-    //API websites as local variables for easy change when port changes on different runs
+//API websites as local variables for easy change when port changes on different runs
     private itemsUrl: string = "http://localhost:65058/api/items";
     private photosUrl: string = "http://localhost:65058/api/photos";
 
 
     constructor(private http: Http, private constants: Constants) {}
-
+//Gets all items from the server
     getItems(): Observable<Iitem[]> {
         return this.http.get(this.itemsUrl).map((response: Response) => {
             return <Iitem[]>response.json();
-        }).catch(this.handleError)
+        }).catch(this.handleError);
     }
 
-    getWebsites(): Observable<Iitem[]> {
-        //return this.http.get("/api/websites") //observable of Response
-
-        //instead map it 
-        return this.http.get(this.itemsUrl).map((response: Response) => {
-            return <Iitem[]>response.json();
-        }).catch(this.handleError)
-    }
-
-
-    getWebsite(id: number): Observable<Iitem> {
-        return this.http.get(this.itemsUrl + id).map((response: Response) => {
-            return <Iitem>response.json();
-        }).catch(this.handleError)
-    }
+//Gets lost item reports from the server
+   getLostReports( email: string): Observable<Ilost[]> {
+       return this.http.get(this.itemsUrl + "?email=" + email).map((response: Response) => {
+           return<Ilost[]>response.json();
+       }).catch(this.handleError);
+   }
 
 
     //Searches for an image by a string search term by calling a local API that uses a webservice API
@@ -90,9 +81,12 @@ export class WebsiteService
                 }
             }
         };
-        let url = this.itemsUrl + "/post";
-        let body = JSON.stringify( this.lost );
-        this.http.post(url, body).subscribe(res => console.log(res.json()));
+        let url = this.itemsUrl;
+        let body = JSON.stringify(this.lost);
+        let header = {
+            'Content-type': 'application/json'
+        };
+        this.http.post(url, body, header).subscribe(res => console.log(res.json()));
         console.log(body);
     }
 

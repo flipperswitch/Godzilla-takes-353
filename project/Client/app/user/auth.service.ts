@@ -19,4 +19,8 @@ export class AuthService {
     isAuthenticated() {
         return !!this.currentUser;
     }
+
+    getUserEmail() {
+        return this.currentUser.email;
+    }
 }

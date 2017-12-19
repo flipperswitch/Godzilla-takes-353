@@ -14,7 +14,7 @@ import Iitem = Itemmodel.Iitem;
     <hr />
     <div class="row">
         <div *ngFor="let item of items" class="col-md-5">
-            <website-thumbnail  [item]="item" (eventClick)="websiteClick($event)"></website-thumbnail>
+            <website-thumbnail  [item]="item"></website-thumbnail>
         </div>
     </div>
 </div>
@@ -27,20 +27,9 @@ export class WebsitesListComponent implements OnInit {
     }
 
     ngOnInit() {
-
-        //get data directly from service
-        //this.websites = this.websiteService.getWebsites()
-
-        //getting data from observable
-        //this.websiteService.getWebsites().subscribe(
-        //    websites => { this.websites = websites })
-
         //getting data from route
         this.items = this.router.snapshot.data['items']
 
     }
 
-    websiteClick(data) {
-        console.log("the data is: " + data)
-    }
 }

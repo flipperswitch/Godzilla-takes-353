@@ -18,8 +18,10 @@
                        [routerLinkActiveOptions] = "{exact:true}" 
                        >Report Item Lost</a></li>
                 <li *ngIf="auth.isAuthenticated()">
-                    <a href="">
-                        Profile</a>
+                    <a [routerLink]="['/profile']"
+                       routerLinkActive="active"
+                       [routerLinkActiveOptions] ="{exact:true}"
+                    >Profile</a>
                 </li>
             </ul>
             <div class="navbar-header navbar-right">
