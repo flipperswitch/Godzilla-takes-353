@@ -6,7 +6,6 @@ import { WebsitesListComponent } from './websites/websites-list.component'
 import { WebsiteThumbnailComponent } from './websites/website-thumbnail.component'
 import { NavbarComponent } from './nav/navbar.component' 
 import { WebsiteService } from './websites/shared/website.service'
-import { WebsiteDetailsComponent } from './websites/website-details/website-details.component'
 import { appRoutes } from './routes'
 import { CreateWebsiteComponent } from './websites/create-website.component'
 import { WebsitesListResolver } from './websites/websites-list-resolver.service'
@@ -18,6 +17,7 @@ import { SimpleModalComponent } from './common/simple-modal.component'
 import { ModalTriggerDirective } from './common/modal-trigger.directive'
 import { HttpModule, JsonpModule } from '@angular/http'
 import { Constants } from './websites/shared/constants'
+import { ProfileComponent } from './websites/profile.component'
 
 declare let jQuery: Object
 
@@ -27,8 +27,8 @@ declare let jQuery: Object
         WebsitesListComponent,
         WebsiteThumbnailComponent,
         NavbarComponent,
-        WebsiteDetailsComponent,
         CreateWebsiteComponent,
+        ProfileComponent,
         LoginComponent,
         SimpleModalComponent,
         ModalTriggerDirective],

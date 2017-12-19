@@ -14,7 +14,7 @@ namespace WebApi.Models
         public string Category { get; set; }
         public string Description { get; set; }
         public string Status { get; set; }
-        public DateTime CreatedTime { get; set; }
+        public string CreatedTime { get; set; }
         public double ApproximateValue { get; set; }
         public string ImageUrl { get; set; }
         public string SecretIdentifier { get; set; }
@@ -32,9 +32,8 @@ namespace WebApi.Models
     public class LostItemReport
     {
         public int ReportNumber { get; set; }
-        public User Owner { get; set; }
-        public DateTime LastSeenDate { get; set; }
-        public DateTime ReportDate { get; set; }
+        public string LastSeenDate { get; set; }
+        public string ReportDate { get; set; }
         public string LastSeenLocation { get; set; }
         public Item LostItem { get; set; }
     }
@@ -42,13 +41,12 @@ namespace WebApi.Models
     public class FoundItemReport
     {
         public int ReportNumber { get; set; }
-        public User Owner { get; set; }
-        public DateTime FoundDate { get; set; }
+        public string FoundDate { get; set; }
         public string FoundLocation { get; set; }
         public Item FoundItem { get; set; }
-        public String FinderName { get; set; }
-        public String FinderEmail { get; set; }
-        public String FinderPhone { get; set; }
+        public string FinderName { get; set; }
+        public string FinderEmail { get; set; }
+        public string FinderPhone { get; set; }
         public bool WillClaim { get; set; }
         public string StorageLocation { get; set; }
 

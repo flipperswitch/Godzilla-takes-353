@@ -14,7 +14,6 @@ var websites_list_component_1 = require("./websites/websites-list.component");
 var website_thumbnail_component_1 = require("./websites/website-thumbnail.component");
 var navbar_component_1 = require("./nav/navbar.component");
 var website_service_1 = require("./websites/shared/website.service");
-var website_details_component_1 = require("./websites/website-details/website-details.component");
 var routes_1 = require("./routes");
 var create_website_component_1 = require("./websites/create-website.component");
 var websites_list_resolver_service_1 = require("./websites/websites-list-resolver.service");
@@ -26,6 +25,7 @@ var simple_modal_component_1 = require("./common/simple-modal.component");
 var modal_trigger_directive_1 = require("./common/modal-trigger.directive");
 var http_1 = require("@angular/http");
 var constants_1 = require("./websites/shared/constants");
+var profile_component_1 = require("./websites/profile.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -38,8 +38,8 @@ AppModule = __decorate([
             websites_list_component_1.WebsitesListComponent,
             website_thumbnail_component_1.WebsiteThumbnailComponent,
             navbar_component_1.NavbarComponent,
-            website_details_component_1.WebsiteDetailsComponent,
             create_website_component_1.CreateWebsiteComponent,
+            profile_component_1.ProfileComponent,
             login_component_1.LoginComponent,
             simple_modal_component_1.SimpleModalComponent,
             modal_trigger_directive_1.ModalTriggerDirective],

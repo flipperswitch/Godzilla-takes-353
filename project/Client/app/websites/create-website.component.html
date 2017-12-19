@@ -36,6 +36,10 @@
             <label for="location">Where was the item last seen:</label>
             <input (ngModel)="location" name="location" id="location" type="text" class="form-control" placeholder="Last known location..." />
         </div>
+        <div class=" form-group">
+            <label for="lastSeen">When did you last see the item</label>
+            <input (ngModel)="lastSeen" name="lastSeen" id="lastSeen" type="text" class="form-control" placeholder="Last time seen..."/>
+        </div>
         <div class="form-group">
             <label for="secret">Please describe one thing not included in the basic item description that will identify this item as yours and not someone else's. 
                 (i.e. lables, stickers, contents, name on it, damage in a particular area...etc).  This information will be kept private to confirm ownership.</label>
@@ -44,7 +48,7 @@
         <div class="form-group">
             <form id="searchForm" 
                   #searchForm="ngForm" (ngSubmit)="searchImages(searchForm.value)" 
-                  class="navbar-form navbar-right"  >
+                  class="form-group"  >
                 <div class="form-group">
                     <label for="searchTerm">Please find a representative photo for your item.</label>
                     <input (ngModel)="searchTerm" name="searchTerm" type="text" class="form-control" placeholder="Search Images">
@@ -52,16 +56,16 @@
                         Search
                     </button>
                 </div>
-                <div>
+                
+                <div class="form-group">
                     <img src="{{myImage}}" />
                 </div>
 
             </form>
         </div>
         <br/>
-        <br/>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
+        <button type="submit" class="form-control, btn btn-primary">Submit</button>
+        <button type="button" class="form-control, btn btn-default" (click)="cancel()">Cancel</button>
     </form>
 </div>
 

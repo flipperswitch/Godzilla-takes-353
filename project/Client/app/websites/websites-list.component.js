@@ -18,23 +18,15 @@ var WebsitesListComponent = (function () {
         this.router = router;
     }
     WebsitesListComponent.prototype.ngOnInit = function () {
-        //get data directly from service
-        //this.websites = this.websiteService.getWebsites()
-        //getting data from observable
-        //this.websiteService.getWebsites().subscribe(
-        //    websites => { this.websites = websites })
         //getting data from route
         this.items = this.router.snapshot.data['items'];
-    };
-    WebsitesListComponent.prototype.websiteClick = function (data) {
-        console.log("the data is: " + data);
     };
     return WebsitesListComponent;
 }());
 WebsitesListComponent = __decorate([
     core_1.Component({
         //templateUrl: 'app/websites/websites-list.component.html'
-        template: "\n<div>\n    <h1>Current Found Items Inventory</h1>\n    <hr />\n    <div class=\"row\">\n        <div *ngFor=\"let item of items\" class=\"col-md-5\">\n            <website-thumbnail  [item]=\"item\" (eventClick)=\"websiteClick($event)\"></website-thumbnail>\n        </div>\n    </div>\n</div>\n"
+        template: "\n<div>\n    <h1>Current Found Items Inventory</h1>\n    <hr />\n    <div class=\"row\">\n        <div *ngFor=\"let item of items\" class=\"col-md-5\">\n            <website-thumbnail  [item]=\"item\"></website-thumbnail>\n        </div>\n    </div>\n</div>\n"
     }),
     __metadata("design:paramtypes", [website_service_1.WebsiteService, router_1.ActivatedRoute])
 ], WebsitesListComponent);
