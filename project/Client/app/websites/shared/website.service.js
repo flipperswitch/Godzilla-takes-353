@@ -38,28 +38,11 @@ var WebsiteService = (function () {
             return response.json();
         }).catch(this.handleError);
     };
-    //searchEmployees(searchTerm: string) {
-    //    var term = searchTerm.toLowerCase()
-    //    var results: IEmployee[] = []; //initialize to an empty array
-    //    WEBSITES.forEach(website => {
-    //        var matchingEmployees =
-    //            website.employees.filter(employee => employee.name.toLowerCase().indexOf(term) > -1)
-    //        matchingEmployees = matchingEmployees.map((employee: any) => {
-    //            employee.websiteId = website.id
-    //            return employee
-    //        })
-    //        results = results.concat(matchingEmployees);
-    //    })
-    //    var emitter = new EventEmitter(true); //true means do it aysnc
-    //    setTimeout(() => { emitter.emit(results); }, 100)
-    //    return emitter
-    //}
     //Searches for an image by a string search term by calling a local API that uses a webservice API
     //Search term can take spaces.  Program will replace to + for HTML standard for the public API
     //Use of this api will require my injecting their logo onto my page declaring my search uses their software.
     //Method returns an observable asynchronous JSON object containing an array of url strings pointing to
     //    resulting images.
-    //TODO: add image to html for the page
     WebsiteService.prototype.searchImages = function (searchTerm) {
         return this.http.get(this.photosUrl + "?q=" + searchTerm).map(function (response) {
             var d = response.json();
@@ -69,6 +52,35 @@ var WebsiteService = (function () {
             console.log("--");
             return c;
         }).catch(this.handleError);
+    };
+    //Receives values and passes to server api for a Lost Items report
+    WebsiteService.prototype.makeLostReport = function (First, Last, Email, Phone, Category, Description, Value, Location, LastSeen, Secret, ImageLoc) {
+        this.lost = {
+            reportNumber: 0,
+            lastSeenDate: LastSeen,
+            reportDate: Date.now().toString(),
+            lastSeenLocation: Location,
+            lostItem: {
+                id: 0,
+                category: Category,
+                description: Description,
+                status: "Lost",
+                createdTime: Date.now().toString(),
+                approximateValue: Value,
+                imageUrl: ImageLoc,
+                secretIdentifier: Secret,
+                owner: {
+                    email: Email,
+                    phone: Phone,
+                    firstName: First,
+                    lastName: Last,
+                }
+            }
+        };
+        var url = this.itemsUrl + "/post";
+        var body = JSON.stringify(this.lost);
+        this.http.post(url, body).subscribe(function (res) { return console.log(res.json()); });
+        console.log(body);
     };
     WebsiteService.prototype.handleError = function (error) {
         return RX_1.Observable.throw(error.statusText);

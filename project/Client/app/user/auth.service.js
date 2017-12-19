@@ -13,6 +13,8 @@ var AuthService = (function () {
     AuthService.prototype.loginUser = function (userName, password) {
         this.currentUser = {
             id: 1,
+            email: "alice.smith@somedomain.com",
+            phone: "555-444-3333",
             firstName: "Alice",
             lastName: "Smith",
             userName: "alice",

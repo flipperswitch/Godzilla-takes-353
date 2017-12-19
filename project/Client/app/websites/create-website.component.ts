@@ -17,8 +17,18 @@ export class CreateWebsiteComponent {
 
     //processes the form input and sends to the service to push to the server api
     report(formValues) {
-        this.auth.loginUser(formValues.userName, formValues.password)
-        this.router.navigate(["/websites"])
+        this.websiteService.makeLostReport(formValues.firstName,
+            formValues.lastName,
+            formValues.email,
+            formValues.phone,
+            formValues.category,
+            formValues.description,
+            formValues.value,
+            formValues.location,
+            formValues.lastSeen,
+            formValues.secret,
+            this.myImage);
+        this.router.navigate(["/websites"]);
     }
 
     //calls for images matching a search term and saves to the class list foundImages from which an image
@@ -32,7 +42,6 @@ export class CreateWebsiteComponent {
                 this.foundImages[i] = data.hits[i].webformatURL;
             }
         });
-        //console.log(this.foundImages);
     }
 
     selectImage(image) {

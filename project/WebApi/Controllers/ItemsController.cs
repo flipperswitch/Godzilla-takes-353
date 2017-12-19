@@ -36,9 +36,9 @@ namespace WebApi.Controllers
         }
 
         // POST: api/Items
-        public void Post([FromBody]Item item)
+        public void Post([FromBody]LostItemReport report)
         {
-            _itemService.Add(item);
+            _itemService.Add(report);
         }
 
         // PUT: api/Items/5

@@ -7,6 +7,8 @@ export class AuthService {
     loginUser(userName: string, password: string) {
         this.currentUser = {
             id: 1,
+            email: "alice.smith@somedomain.com",
+            phone: "555-444-3333",
             firstName: "Alice",
             lastName: "Smith",
             userName: "alice",
