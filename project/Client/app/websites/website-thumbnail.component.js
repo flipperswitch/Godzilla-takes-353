@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var WebsiteThumbnailComponent = (function () {
     function WebsiteThumbnailComponent() {
@@ -15,35 +16,17 @@ var WebsiteThumbnailComponent = (function () {
         this.someProperty = "Hello";
     }
     WebsiteThumbnailComponent.prototype.handleMyClick = function () {
-        this.eventClick.emit(this.website.name);
+        this.eventClick.emit(this.item.id);
     };
     WebsiteThumbnailComponent.prototype.logFoo = function () {
         console.log('foo');
-    };
-    WebsiteThumbnailComponent.prototype.getEarlyTimeStyle = function () {
-        if (this.website && this.website.createdTime === '8:00 am')
-            return {
-                color: '#003300',
-                'font-weight': 'bold'
-            };
-        return {};
-    };
-    WebsiteThumbnailComponent.prototype.getEarlyTimeClass = function () {
-        if (this.website && this.website.createdTime === '8:00 am')
-            return ['green', 'bold'];
-        return [];
-        //if (this.website && this.website.createdTime === '8:00 am')
-        //    return 'green bold'
-        //return ''
-        //const isEarlyTime = (this.website && this.website.createdTime === '8:00 am')
-        //return { green: isEarlyTime, bold:isEarlyTime}
     };
     return WebsiteThumbnailComponent;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", Object)
-], WebsiteThumbnailComponent.prototype, "website", void 0);
+], WebsiteThumbnailComponent.prototype, "item", void 0);
 __decorate([
     core_1.Output(),
     __metadata("design:type", Object)
@@ -52,10 +35,9 @@ WebsiteThumbnailComponent = __decorate([
     core_1.Component({
         selector: 'website-thumbnail',
         //templateUrl: 'app/websites/website-thumbnail.component.html'
-        template: "\n<div [routerLink]=\"['/websites',website?.id]\" class=\"well hoverwell thumbnail\">\n    <h2>{{website?.name}}</h2>\n    <div>Created Date: {{website?.createdDate}}</div>\n    <div [ngStyle]=\"getEarlyTimeStyle() \" [ngSwitch]=\"website?.createdTime\">\n        Created Time: {{website?.createdTime}}\n        <span *ngSwitchCase=\"'8:00 am'\">(Early start)</span>\n        <span *ngSwitchCase=\"'10:00 am'\">(Late start)</span>\n        <span *ngSwitchDefault>(Normal start)</span>\n    </div>\n\n    <div>Description: {{website?.description}}</div>\n    <div>Membership Fee: ${{ website?.membershipFee }}</div>\n    <div [hidden]=\"!website?.ownerAddress\">\n        <span>{{website?.ownerAddress?.address}}</span>\n        <span>&nbsp;</span>\n        <span>{{website?.ownerAddress?.city}}</span>, <span>{{website?.ownerAddress?.country}}</span>\n    </div>\n    <div [hidden]=\"!website?.onlineUrl\">Online Url: {{website?.onlineUrl}}</div>\n    </div>\n",
+        template: "\n<div class=\"well hoverwell thumbnail\" *ngIf = \"item.status == 'Found'\">\n    <div><h2>{{item?.category}}</h2></div>\n    <div>Description: {{item?.description}}</div>\n    <div>Estimated Value: ${{ item?.approximateValue }}</div>\n    <img [hidden]=\"!item?.imageUrl\" src={{item.imageUrl}}>\n    <div>Report Date: {{item?.createdTime}}</div>\n    </div>\n",
         styles: ["\n        .green{color:#003300}\n        .bold{font-weight:bold}\n        .thumbnail {min-height:370px;}\n\t    .pad-left {margin-left:10px;}\n\t    .well div {color:#D7CEC7;}\n        "]
-    }),
-    __metadata("design:paramtypes", [])
+    })
 ], WebsiteThumbnailComponent);
 exports.WebsiteThumbnailComponent = WebsiteThumbnailComponent;
 //# sourceMappingURL=website-thumbnail.component.js.map

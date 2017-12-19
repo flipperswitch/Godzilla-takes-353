@@ -1,27 +1,15 @@
 ﻿import { Component, Input,Output,EventEmitter } from '@angular/core'
-import { IWebsite } from './shared/website.model'
+import { Iitem } from './shared/item.model'
 @Component({
     selector: 'website-thumbnail',
     //templateUrl: 'app/websites/website-thumbnail.component.html'
     template:`
-<div [routerLink]="['/websites',website?.id]" class="well hoverwell thumbnail">
-    <h2>{{website?.name}}</h2>
-    <div>Created Date: {{website?.createdDate}}</div>
-    <div [ngStyle]="getEarlyTimeStyle() " [ngSwitch]="website?.createdTime">
-        Created Time: {{website?.createdTime}}
-        <span *ngSwitchCase="'8:00 am'">(Early start)</span>
-        <span *ngSwitchCase="'10:00 am'">(Late start)</span>
-        <span *ngSwitchDefault>(Normal start)</span>
-    </div>
-
-    <div>Description: {{website?.description}}</div>
-    <div>Membership Fee: \${{ website?.membershipFee }}</div>
-    <div [hidden]="!website?.ownerAddress">
-        <span>{{website?.ownerAddress?.address}}</span>
-        <span>&nbsp;</span>
-        <span>{{website?.ownerAddress?.city}}</span>, <span>{{website?.ownerAddress?.country}}</span>
-    </div>
-    <div [hidden]="!website?.onlineUrl">Online Url: {{website?.onlineUrl}}</div>
+<div class="well hoverwell thumbnail" *ngIf = "item.status == 'Found'">
+    <div><h2>{{item?.category}}</h2></div>
+    <div>Description: {{item?.description}}</div>
+    <div>Estimated Value: \${{ item?.approximateValue }}</div>
+    <img [hidden]="!item?.imageUrl" src={{item.imageUrl}}>
+    <div>Report Date: {{item?.createdTime}}</div>
     </div>
 `,
     styles: [`
@@ -34,36 +22,15 @@ import { IWebsite } from './shared/website.model'
 })
 
 export class WebsiteThumbnailComponent {
-    @Input() website: IWebsite
+    @Input() item: Iitem
     @Output() eventClick = new EventEmitter()
     someProperty: any = "Hello"
     handleMyClick() {
-        this.eventClick.emit(this.website.name)
+        this.eventClick.emit(this.item.id)
     }
 
     logFoo() {
         console.log('foo')
     }
 
-    getEarlyTimeStyle():any {
-        if (this.website && this.website.createdTime === '8:00 am')
-            return {
-                color: '#003300',
-                'font-weight': 'bold'
-            }
-        return {}
-
-    }
-    getEarlyTimeClass() {
-        if (this.website && this.website.createdTime === '8:00 am')
-            return ['green', 'bold']
-        return []
-
-        //if (this.website && this.website.createdTime === '8:00 am')
-        //    return 'green bold'
-        //return ''
-
-        //const isEarlyTime = (this.website && this.website.createdTime === '8:00 am')
-        //return { green: isEarlyTime, bold:isEarlyTime}
-    }
 }

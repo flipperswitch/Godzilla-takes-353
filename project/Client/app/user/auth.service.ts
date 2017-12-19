@@ -7,10 +7,10 @@ export class AuthService {
     loginUser(userName: string, password: string) {
         this.currentUser = {
             id: 1,
-            firstName: "Joe",
+            firstName: "Alice",
             lastName: "Smith",
-            userName: "jsmith",
-            password: "pwd1"
+            userName: "alice",
+            password: "alice"
         }
     }
 

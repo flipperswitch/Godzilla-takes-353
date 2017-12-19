@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var auth_service_1 = require("../user/auth.service");
 var website_service_1 = require("../websites/shared/website.service");
@@ -15,20 +16,7 @@ var NavbarComponent = (function () {
     function NavbarComponent(auth, websiteService) {
         this.auth = auth;
         this.websiteService = websiteService;
-        this.foundImages = [];
     }
-    NavbarComponent.prototype.searchImages = function (searchTermForm) {
-        var _this = this;
-        console.log(searchTermForm.searchTerm);
-        this.websiteService.searchImages(searchTermForm.searchTerm).subscribe(function (data) {
-            console.log(data);
-            console.log(data.totalHits);
-            for (var i = 0; i < data.hits.length; i++) {
-                _this.foundImages[i] = data.hits[i].webformatURL;
-            }
-        });
-        console.log(this.foundImages);
-    };
     return NavbarComponent;
 }());
 NavbarComponent = __decorate([

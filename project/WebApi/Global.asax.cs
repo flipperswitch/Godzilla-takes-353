@@ -37,7 +37,7 @@ namespace WebApi
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             
-            Application["Websites"]  = WebsiteConfig.BuildWebsites();
+            Application["Items"]  = WebsiteConfig.BuildItems();
 
         }
     }

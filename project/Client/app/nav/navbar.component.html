@@ -17,19 +17,9 @@
                        routerLinkActive="active"
                        [routerLinkActiveOptions] = "{exact:true}" 
                        >Report Item Lost</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
-                        Other Actions
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li >
-                            <a href="">Release Item</a>
-                            <a href="">Found Item</a>
-                            <a href="">Clear Item</a>
-                            <a href="">Report Lost</a>
-                        </li>
-                    </ul>
+                <li *ngIf="auth.isAuthenticated()">
+                    <a href="">
+                        Profile</a>
                 </li>
             </ul>
             <div class="navbar-header navbar-right">
@@ -40,24 +30,7 @@
                     </li>
                 </ul>
             </div>
-            <form id="searchForm" 
-                  #searchForm="ngForm" (ngSubmit)="searchImages(searchForm.value)" 
-                  class="navbar-form navbar-right"  >
-                <div class="form-group">
-                    <input (ngModel)="searchTerm" name="searchTerm" type="text" class="form-control" placeholder="Search Images" >
-                </div>
-                <button class="btn btn-default"  modal-trigger="searchModal">
-                    Search
-                </button>
-            </form>
         </div>
     </div>
 </div>
 
-
-<simple-modal elementId="searchModal" title="Matching Images">
-    <div class="list-group">
-        <div class="list-group-item" 
-           *ngFor="let image of foundImages" ><img src={{image}}></div>
-    </div>
-</simple-modal>
